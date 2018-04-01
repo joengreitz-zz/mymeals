@@ -6,7 +6,11 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore } from 'redux'
 import reducer from './reducers'
 
-const store = createStore(reducer)
+const store = createStore(
+  reducer,
+  /*Enable use of Redux Devtools i.e. If redux store lives on our object, then envoke that*/
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 console.log(store.getState())
 

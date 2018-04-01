@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { addRecipe } from '../actions'
+import { addRecipe, removeFromCalendar} from '../actions'
 import { connect } from 'react-redux'
 
 class App extends Component {
@@ -33,7 +33,24 @@ function mapStateToProps (calendar) {
   }
 }
 
+/*Alternatively, include above render function:
+
+doThing = () => {
+  this.props.dispatch(addRecipe({}))
+}
+
+*/
+
+function mapDispatchToProps (dispatch) {
+  return {
+    /*What we return will be passed to our component as props*/
+    selectRecipe: (data) => dispatch(addRecipe(data)),
+    remove: (data) => dispatch(removeFromCalendar(data))
+  }
+}
+
 /*To dispatch an action inside of a component, connect that component.*/
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(App)

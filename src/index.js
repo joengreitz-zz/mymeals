@@ -8,7 +8,7 @@ import reducer from './reducers'
 
 const store = createStore(reducer)
 
-console.log(store)
+console.log(store.getState())
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();

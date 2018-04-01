@@ -8,7 +8,7 @@ class App extends Component {
 
   /*When our component mounts, run lifecycle method*/
   componentDidMount () {
-    /*Grab store from props*/
+    /*Pass store prop to App component that ReacDOM renders*/
     const { store } = this.props
     /*Subscribe to any changes that happen in redux store and call setState to get state out of store and into component state*/
     store.subscribe(() => {
